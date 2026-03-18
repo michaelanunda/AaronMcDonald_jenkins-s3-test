@@ -72,24 +72,18 @@ pipeline {
         stage('Validate Terraform') {
             steps {
                 // terraform validate does NOT need credentials
-                {
                     sh '''
-
                     terraform validate
                     '''
-                }
             }
         }
 
         stage('Format Terraform') {
             steps {
                 // terraform format does NOT need credentials
-                {
                     sh '''
-
                     terraform fmt
                     '''
-                }
             }
         }
 
