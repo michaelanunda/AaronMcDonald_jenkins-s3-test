@@ -11,7 +11,7 @@ pipeline {
             steps {
                 withCredentials([[
                     $class: 'AmazonWebServicesCredentialsBinding',
-                    credentialsId: 'awsIam' // this needs to be changed before runtime to match the Jenkins credential
+                    credentialsId: 'testMe' // this needs to be changed before runtime to match the Jenkins credential
                 ]]) {
                     sh '''
                     echo "AWS_ACCESS_KEY_ID: $AWS_ACCESS_KEY_ID"
@@ -59,7 +59,7 @@ pipeline {
             steps {
                 withCredentials([[
                     $class: 'AmazonWebServicesCredentialsBinding',
-                    credentialsId: 'awsIam' // this needs to be changed before runtime to match the Jenkins credential
+                    credentialsId: 'testMe' // this needs to be changed before runtime to match the Jenkins credential
                 ]]) {
                     sh '''
 
@@ -91,7 +91,7 @@ pipeline {
             steps {
                 withCredentials([[
                     $class: 'AmazonWebServicesCredentialsBinding',
-                    credentialsId: 'awsIam' // this needs to be changed before runtime to match the Jenkins credential
+                    credentialsId: 'testMe' // this needs to be changed before runtime to match the Jenkins credential
                 ]]) {
                     sh '''
 
@@ -105,7 +105,7 @@ pipeline {
                 input message: "Approve Terraform Apply?", ok: "Deploy"
                 withCredentials([[
                     $class: 'AmazonWebServicesCredentialsBinding',
-                    credentialsId: 'awsIam' // this needs to be changed before runtime to match the Jenkins credential
+                    credentialsId: 'testMe' // this needs to be changed before runtime to match the Jenkins credential
                 ]]) {
                     sh '''
 
@@ -133,7 +133,7 @@ pipeline {
                     if (destroyChoice == 'yes') {
                         withCredentials([[
                             $class: 'AmazonWebServicesCredentialsBinding',
-                            credentialsId: 'awsIam' // this needs to be changed before runtime to match the Jenkins credential
+                            credentialsId: 'testMe' // this needs to be changed before runtime to match the Jenkins credential
                         ]]) {
                             sh 'terraform destroy -auto-approve'
                         }
